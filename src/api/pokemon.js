@@ -1,4 +1,4 @@
-import { API_HOST } from "../utils/constants";
+import { API_HOST } from '../utils/constants';
 
 export async function getPokemonApi() {
   try {
@@ -6,7 +6,16 @@ export async function getPokemonApi() {
     const response = await fetch(url);
     const result = await response.json();
     return result;
+  } catch (error) {
+    throw error;
+  }
+}
 
+export async function getPokemonDetailsByUrlApi(url) {
+  try {
+    const response = await fetch(url);
+    const result = await response.json();
+    return result;
   } catch (error) {
     throw error;
   }
