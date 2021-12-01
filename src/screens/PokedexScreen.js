@@ -18,12 +18,12 @@ export default function PokedexScreen() {
       const response = await getPokemonApi();
       const pokemonsArray = [];
 
-      for await (const pokemon of response.result) {
+      for await (const pokemon of response.results) {
         const pokemonDetails = await getPokemonDetailsByUrlApi(pokemon.url);
         pokemonsArray.push({
           id: pokemonDetails.id,
           name: pokemonDetails.name,
-          type: pokemonDetails.type[0].type.name,
+          type: pokemonDetails.types[0].type.name,
           order: pokemonDetails.order,
           imagen:
             pokemonDetails.sprites.other["official-artwork"].front_default,
