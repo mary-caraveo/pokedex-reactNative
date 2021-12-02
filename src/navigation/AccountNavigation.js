@@ -13,5 +13,5 @@ export default function AccountNavigation() {
         options={{ title: "Mi Cuenta" }}
       />
     </Stack.Navigator>
-  )
+  );
 }

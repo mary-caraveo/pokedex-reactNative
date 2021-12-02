@@ -21,10 +21,14 @@ export default function Navigation() {
           ),
         }}
       />
-      <Tab.Screen name="Pokedex" component={PokedexNavigation} options={{
-        tabBarLabel: "",
-        tabBarIcon: () => renderPokeball(),
-      }}/>
+      <Tab.Screen
+        name="Pokedex"
+        component={PokedexNavigation}
+        options={{
+          tabBarLabel: "",
+          tabBarIcon: () => renderPokeball(),
+        }}
+      />
       <Tab.Screen
         name="Account"
         component={AccountNavigation}
