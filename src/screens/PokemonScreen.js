@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text } from 'react-native';
-import {getPokemonDetailsApi} from '../api/pokemon';
+import { ScrollView } from 'react-native';
+import { getPokemonDetailsApi } from '../api/pokemon';
+import Header from '../components/pokemon/Header';
 
 export default function PokemonScreen(props) {
   const {
@@ -20,12 +21,16 @@ export default function PokemonScreen(props) {
     })();
   }, [params]);
 
-  if(!pokemon) return null;
+  if (!pokemon) return null;
 
   return (
-    <View>
-      <Text>Pokemon</Text>
-      <Text>{pokemon.name}</Text>
-    </View>
+    <ScrollView>
+      <Header
+        name={pokemon.name}
+        order={pokemon.order}
+        image={pokemon.sprites.other["official-artwork"].front_default}
+        type={pokemon.types[0].type.name}
+      />
+    </ScrollView>
   );
 }
