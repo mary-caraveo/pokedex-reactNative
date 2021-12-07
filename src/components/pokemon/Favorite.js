@@ -6,13 +6,25 @@ import { addPokemonsFavoriteApi, isPokemonFavoriteApi } from '../../api/favorite
 export default function Favorite(props) {
   const { id } = props;
   const [isFavorite, setIsFavorite] = useState(undefined);
+  const [reloadCheck, setReloadCheck] = useState(false);
   const Icon = isFavorite ? FontAwesome : FontAwesome5;
 
   const addFavorite = async () => {
-    await addPokemonsFavoriteApi(id);
+    try {
+      await addPokemonsFavoriteApi(id);
+      onReloadCheckFavorite();
+    } catch (error) {
+      console.log(error);
+    }
   };
 
-  const removeFavorite = () => {};
+  const removeFavorite = () => {
+    console.log("Eliminar de favoritos");
+  };
+
+  const onReloadCheckFavorite = () => {
+    setReloadCheck((prev) => !prev);
+  };
 
   useEffect(() => {
     (async () => {
@@ -23,7 +35,7 @@ export default function Favorite(props) {
         setIsFavorite(false);
       }
     })();
-  }, [id]);
+  }, [id, reloadCheck]);
 
   return (
     <Icon
