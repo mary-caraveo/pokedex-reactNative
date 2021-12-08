@@ -1,5 +1,4 @@
 import React, { useState, useCallback } from 'react';
-import { Text } from 'react-native';
 import { useFocusEffect } from '@react-navigation/native';
 import { getPokemonFavoriteApi } from '../api/favorite';
 import { getPokemonDetailsApi } from '../api/pokemon';

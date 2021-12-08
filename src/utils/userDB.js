@@ -1,11 +1,11 @@
 export const user = {
-  username: "guadalupe21",
+  username: "Guadalupe",
   password: "123456",
 };
 
 export const userDetails = {
-  username: "guadalupe21",
-  firstName: "Maria Guadalupe",
+  username: "Guadalupe",
+  firstName: "Maria Gpe",
   lastName: "Caraveo Mosqueda",
-  email: "aries_pumas94@gmail.com",
+  email: "desarrollo@gmail.com",
 };
