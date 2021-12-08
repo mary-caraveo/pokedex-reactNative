@@ -8,7 +8,7 @@ export default function Type(props) {
 
   return (
     <View style={styles.content}>
-      {map(types, (item, index) => {
+      {map(types, (item, index) => (
         <View
           key={index}
           style={{
@@ -17,15 +17,15 @@ export default function Type(props) {
           }}
         >
           <Text>{capitalize(item.type.name)}</Text>
-        </View>;
-      })}
+        </View>
+      ))}
     </View>
   );
 }
 
 const styles = StyleSheet.create({
   content: {
-    marginTop: 50,
+    marginTop: 20,
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "center",
