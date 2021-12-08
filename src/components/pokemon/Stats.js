@@ -6,13 +6,12 @@ export default function Stats(props) {
   const { stats } = props;
 
   const barStyles = (num) => {
-    const color = num > 49 ? "#26b983" : "#ff3e3e"
+    const color = num > 49 ? "#00ac17" : "#ff3e3e";
     return {
       backgroundColor: color,
-      with: `${num}`,
-
-    }
-  }
+      width: `${num}%`,
+    };
+  };
 
   return (
     <View style={styles.content}>
@@ -25,7 +24,7 @@ export default function Stats(props) {
           <View style={styles.blockInfo}>
             <Text style={styles.number}>{item.base_stat}</Text>
             <View style={styles.bgBar}>
-              <View style={[styles.bar, barStyles(item.base_stat)]}></View>
+              <View style={[styles.bar, barStyles(item.base_stat)]} />
             </View>
           </View>
         </View>
@@ -50,11 +49,11 @@ const styles = StyleSheet.create({
     paddingVertical: 5,
   },
   blockTitle: {
-    width: 30,
+    width: "30%",
   },
   statName: {
     fontSize: 12,
-    color: "#6b6b6b"
+    color: "#6b6b6b",
   },
   blockInfo: {
     width: "70%",
@@ -75,5 +74,5 @@ const styles = StyleSheet.create({
   bar: {
     height: 5,
     borderRadius: 20,
-  }
+  },
 });
