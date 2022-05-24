@@ -4,8 +4,8 @@ export const user = {
 };
 
 export const userDetails = {
-  username: "Guadalupe",
+  username: "Mary",
   firstName: "Maria Gpe",
   lastName: "Caraveo Mosqueda",
-  email: "desarrollo@gmail.com",
+  email: "mary.caraveo94@gmail.com",
 };
