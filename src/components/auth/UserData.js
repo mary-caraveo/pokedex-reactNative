@@ -26,7 +26,7 @@ export default function UserData() {
     <View style={styles.content}>
       <View style={styles.titleBlock}>
         <Text style={styles.title}>Bienvenid@,</Text>
-        <Text style={styles.title}>{`${auth.firstName} ${auth.lastName}`}</Text>
+        <Text style={styles.titleName}>{`${auth.firstName} ${auth.lastName}`}</Text>
       </View>
       <View style={styles.dataContent}>
         <ItemMenu title="Nombre" text={`${auth.firstName} ${auth.lastName}`} />
@@ -60,7 +60,11 @@ const styles = StyleSheet.create({
   },
   title: {
     fontWeight: "bold",
-    fontSize: 22,
+    fontSize: 24,
+  },
+  titleName: {
+    fontWeight: "400",
+    fontSize: 19,
   },
   dataContent: {
     marginBottom: 20,
@@ -75,6 +79,7 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     paddingRight: 10,
     width: 120,
+    color: "#383434"
   },
   btnLogout: {
     paddingTop: 20,

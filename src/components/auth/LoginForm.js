@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { StyleSheet, View, Text, TextInput, Button, Keyboard } from 'react-native';
+import { StyleSheet, View, Text, TextInput, Button } from 'react-native';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import { user, userDetails } from '../../utils/userDB';
@@ -26,7 +26,7 @@ export default function LoginForm() {
   });
 
   return (
-    <View>
+    <View style={styles.content}>
       <Text style={styles.title}>Iniciar sesión</Text>
       <TextInput
         placeholder="Nombre de usuario"
@@ -66,16 +66,22 @@ function validationSchema() {
 }
 
 const styles = StyleSheet.create({
+  content: {
+    padding: 25,
+  },
   title: {
     textAlign: "center",
     fontSize: 28,
     fontWeight: "bold",
-    marginTop: 50,
-    marginBottom: 15,
+    marginTop: 30,
+    marginBottom: 40,
   },
   input: {
     height: 40,
-    margin: 12,
+    width: "96%",
+    marginRight: 6,
+    marginLeft: 6,
+    marginBottom: 30,
     borderWidth: 1,
     padding: 10,
     borderRadius: 10,
