@@ -27,13 +27,13 @@ export default function PokedexScreen() {
           name: pokemonDetails.name,
           type: pokemonDetails.types[0].type.name,
           order: pokemonDetails.order,
-          image: pokemonDetails.sprites.other["official-artwork"].front_default,
+          image: pokemonDetails.sprites.other['official-artwork'].front_default,
         });
       }
 
       setPokemons([...pokemons, ...pokemonsArray]);
     } catch (error) {
-      console.error("error");
+      console.error('error');
     }
   };
 

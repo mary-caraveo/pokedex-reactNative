@@ -6,7 +6,7 @@ import useAuth from '../hooks/useAuth';
 import PokemonList from '../components/PokemonList';
 import NoLogged from '../components/NoLogged';
 
-export default function FavoriteScreen() {
+const FavoriteScreen = () => {
   const [pokemons, setPokemons] = useState([]);
   const { auth } = useAuth();
 
@@ -26,15 +26,16 @@ export default function FavoriteScreen() {
               type: pokemonDetails.types[0].type.name,
               order: pokemonDetails.order,
               image:
-                pokemonDetails.sprites.other["official-artwork"].front_default,
+                pokemonDetails.sprites.other['official-artwork'].front_default,
             });
           }
           setPokemons(pokemonsArray);
         })();
       }
-    }, [auth])
+    }, [auth]),
   );
 
   return !auth ? <NoLogged /> : <PokemonList pokemons={pokemons} />;
-}
+};
 
+export default FavoriteScreen;
