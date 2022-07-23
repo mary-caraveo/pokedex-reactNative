@@ -8,14 +8,14 @@ const NoLogged = () => {
 
   return (
     <View backgroundColor="white" height="100%">
-      <View paddingTop={10}>
+      <View paddingTop={2}>
         <Image
-          source={require('../assets/notify.png')}
+          source={require('../assets/warning.png')}
           resizeMode="cover"
-          style={{ width: 400, height: 200 }}
+          style={{ width: 400, height: 300 }}
         />
       </View>
-      <View marginVertical={50} paddingHorizontal={30}>
+      <View paddingHorizontal={30}>
         <Text
           textAlign="center"
           marginBottom={2}
