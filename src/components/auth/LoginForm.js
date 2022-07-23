@@ -1,12 +1,23 @@
 import React, { useState } from 'react';
-import { StyleSheet, View, Text, TextInput, Button } from 'react-native';
+import { Image } from 'react-native';
+import { MaterialIcons } from '@expo/vector-icons';
+import {
+  View,
+  Text,
+  Input,
+  Stack,
+  FormControl,
+  Icon,
+  Button,
+} from 'native-base';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import { user, userDetails } from '../../utils/userDB';
 import useAuth from '../../hooks/useAuth';
 
-export default function LoginForm() {
-  const [error, setError] = useState("");
+const LoginForm = () => {
+  const [show, setShow] = useState(false);
+  const [error, setError] = useState('');
   const { login } = useAuth();
 
   const formik = useFormik({
@@ -14,11 +25,11 @@ export default function LoginForm() {
     validationSchema: Yup.object(validationSchema()),
     validateOnChange: false,
     onSubmit: (formValue) => {
-      setError("");
+      setError('');
       const { username, password } = formValue;
 
       if (username != user.username || password !== user.password) {
-        setError("El usuario o la contraseña no son correctos");
+        setError('El usuario o la contraseña no son correctos');
       } else {
         login(userDetails);
       }
@@ -26,69 +37,102 @@ export default function LoginForm() {
   });
 
   return (
-    <View style={styles.content}>
-      <Text style={styles.title}>Iniciar sesión</Text>
-      <TextInput
-        placeholder="Nombre de usuario"
-        style={styles.input}
-        autoCapitalize="none"
-        value={formik.values.username}
-        onChangeText={(text) => formik.setFieldValue("username", text)}
+    <View backgroundColor="white" height="100%" paddingTop={6}>
+      <Image
+        source={require('../../assets/account.png')}
+        resizeMode="cover"
+        style={{ width: 400, height: 200 }}
       />
-      <TextInput
-        placeholder="Contraseña"
-        style={styles.input}
-        autoCapitalize="none"
-        secureTextEntry={true}
-        value={formik.values.password}
-        onChangeText={(text) => formik.setFieldValue("password", text)}
-      />
-      <Button title="Ingresar" onPress={formik.handleSubmit} />
-      <Text style={styles.error}>{formik.errors.username}</Text>
-      <Text style={styles.error}>{formik.errors.password}</Text>
-      <Text style={styles.error}>{error}</Text>
+
+      <View paddingX="25">
+        <Text fontSize="26" fontWeight="bold" marginTop="30" marginBottom="8">
+          Iniciar sesión
+        </Text>
+        <Stack space={4} marginBottom="10">
+          <FormControl isInvalid={!!formik.errors.username}>
+            <Input
+              variant="underlined"
+              placeholder="Nombre de usuario"
+              fontSize="14"
+              autoCapitalize="none"
+              value={formik.values.username}
+              onChangeText={(text) => formik.setFieldValue('username', text)}
+              InputLeftElement={
+                <Icon
+                  as={MaterialIcons}
+                  name="person"
+                  size="md"
+                  mx="3"
+                  color="muted.400"
+                />
+              }
+            />
+            <FormControl.ErrorMessage>
+              {formik.errors.username}
+            </FormControl.ErrorMessage>
+          </FormControl>
+          <FormControl isInvalid={!!formik.errors.password}>
+            <Input
+              variant="underlined"
+              placeholder="Contraseña"
+              fontSize="14"
+              autoCapitalize="none"
+              secureTextEntry={true}
+              value={formik.values.password}
+              onChangeText={(text) => formik.setFieldValue('password', text)}
+              InputLeftElement={
+                <Icon
+                  as={MaterialIcons}
+                  name="lock"
+                  size="md"
+                  mx="3"
+                  color="muted.400"
+                />
+              }
+              type={show ? 'text' : 'password'}
+              InputRightElement={
+                <Icon
+                  as={MaterialIcons}
+                  name={show ? 'visibility' : 'visibility-off'}
+                  size={5}
+                  mr="2"
+                  color="muted.400"
+                  onPress={() => setShow(!show)}
+                />
+              }
+            />
+            <FormControl.ErrorMessage>
+              {formik.errors.password}
+            </FormControl.ErrorMessage>
+          </FormControl>
+        </Stack>
+        <Button
+          borderRadius="50"
+          size="lg"
+          title="Ingresar"
+          onPress={formik.handleSubmit}>
+          Ingresar
+        </Button>
+        <Text textAlign="center" marginTop="20" color="red.500">
+          {error}
+        </Text>
+      </View>
     </View>
   );
-}
+};
 
 function initialValues() {
   return {
-    username: "",
-    password: "",
+    username: '',
+    password: '',
   };
 }
 
 function validationSchema() {
   return {
-    username: Yup.string().required("El usuario es obligatorio"),
-    password: Yup.string().required("La contraseña es obligatoria"),
+    username: Yup.string().required('El usuario es obligatorio'),
+    password: Yup.string().required('La contraseña es obligatoria'),
   };
 }
 
-const styles = StyleSheet.create({
-  content: {
-    padding: 25,
-  },
-  title: {
-    textAlign: "center",
-    fontSize: 28,
-    fontWeight: "bold",
-    marginTop: 30,
-    marginBottom: 40,
-  },
-  input: {
-    height: 40,
-    width: "96%",
-    marginRight: 6,
-    marginLeft: 6,
-    marginBottom: 30,
-    borderWidth: 1,
-    padding: 10,
-    borderRadius: 10,
-  },
-  error: {
-    textAlign: "center",
-    color: "red",
-    marginTop: 20,
-  },
-});
+export default LoginForm;
