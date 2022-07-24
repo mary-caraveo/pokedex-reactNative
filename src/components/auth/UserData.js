@@ -1,11 +1,12 @@
 import React, { useState, useCallback } from 'react';
-import { StyleSheet, View, Text, Button } from 'react-native';
+import { View, Text, Divider, VStack, Button, Icon, Flex } from 'native-base';
+import { MaterialIcons } from '@expo/vector-icons';
 import { useFocusEffect } from '@react-navigation/native';
 import { size } from 'lodash';
 import useAuth from '../../hooks/useAuth';
 import { getPokemonFavoriteApi } from '../../api/favorite';
 
-export default function UserData() {
+const UserData = () => {
   const { auth, logout } = useAuth();
   const [total, setTotal] = useState(0);
 
@@ -19,69 +20,76 @@ export default function UserData() {
           setTotal(0);
         }
       })();
-    }, [])
+    }, []),
   );
 
   return (
-    <View style={styles.content}>
-      <View style={styles.titleBlock}>
-        <Text style={styles.title}>Bienvenid@,</Text>
-        <Text style={styles.titleName}>{`${auth.firstName} ${auth.lastName}`}</Text>
-      </View>
-      <View style={styles.dataContent}>
-        <ItemMenu title="Nombre" text={`${auth.firstName} ${auth.lastName}`} />
-        <ItemMenu title="Username" text={auth.username} />
-        <ItemMenu title="Email" text={auth.email} />
-        <ItemMenu title="Total Favoritos" text={`${total} Pokemons`} />
-      </View>
-
-      <Button style={styles.btnLogout} title="Desconectarse" onPress={logout} />
+    <View backgroundColor="white" height="100%">
+      <Flex direction="row" marginBottom="30" marginX="6" marginTop="6">
+        <Text fontWeight="bold" fontSize="24">
+          Bienvenid@,
+        </Text>
+        <Text fontWeight="400" fontSize="24" marginLeft={4}>
+          {auth.username}
+        </Text>
+      </Flex>
+      <VStack space={5} marginX="4" marginBottom="6">
+        <Flex direction="row">
+          <Icon
+            as={MaterialIcons}
+            name="person"
+            size="md"
+            mx="3"
+            color="muted.400"
+          />
+          <Text
+            color="gray.700"
+            fontSize="16">{`${auth.firstName} ${auth.lastName}`}</Text>
+        </Flex>
+        <Divider />
+        <Flex direction="row">
+          <Icon
+            as={MaterialIcons}
+            name="person-outline"
+            size="md"
+            mx="3"
+            color="muted.400"
+          />
+          <Text color="gray.700" fontSize="16">
+            {auth.username}
+          </Text>
+        </Flex>
+        <Divider />
+        <Flex direction="row">
+          <Icon
+            as={MaterialIcons}
+            name="email"
+            size="md"
+            mx="3"
+            color="muted.400"
+          />
+          <Text color="gray.700" fontSize="16">
+            {auth.email}
+          </Text>
+        </Flex>
+        <Divider />
+        <Flex direction="row">
+          <Icon
+            as={MaterialIcons}
+            name="favorite"
+            size="md"
+            mx="3"
+            color="muted.400"
+          />
+          <Text color="gray.700" fontSize="16">{`${total} Pokemons`}</Text>
+        </Flex>
+        <Divider />
+        <Button borderRadius="50" size="lg" onPress={logout}>
+          Desconectarse
+        </Button>
+      </VStack>
     </View>
   );
-}
+};
 
-function ItemMenu(props) {
-  const { title, text } = props;
-  return (
-    <View style={styles.ItemMenu}>
-      <Text style={styles.ItemMenuTitle}>{title}:</Text>
-      <Text>{text}</Text>
-    </View>
-  );
-}
-
-const styles = StyleSheet.create({
-  content: {
-    marginHorizontal: 20,
-    marginTop: 20,
-  },
-  titleBlock: {
-    marginBottom: 30,
-  },
-  title: {
-    fontWeight: "bold",
-    fontSize: 24,
-  },
-  titleName: {
-    fontWeight: "400",
-    fontSize: 19,
-  },
-  dataContent: {
-    marginBottom: 20,
-  },
-  ItemMenu: {
-    flexDirection: "row",
-    paddingVertical: 20,
-    borderBottomWidth: 1,
-    borderColor: "#CFCFCF",
-  },
-  ItemMenuTitle: {
-    fontWeight: "bold",
-    paddingRight: 10,
-    width: 120,
-    color: "#383434"
-  },
-  btnLogout: {
-    paddingTop: 20,
-  },
-});
+export default UserData;
