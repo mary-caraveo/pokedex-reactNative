@@ -1,4 +1,5 @@
 import React, { useState, useCallback } from 'react';
+import { Image } from 'react-native';
 import {
   View,
   Text,
@@ -42,7 +43,13 @@ const UserData = () => {
           {auth.username}
         </Text>
       </Flex>
-
+      <View marginX={6}>
+        <Image
+          source={require('../../assets/welcome.png')}
+          resizeMode="cover"
+          style={{ width: 350, height: 250 }}
+        />
+      </View>
       <VStack space={5} marginX="4" marginY="4">
         <Flex direction="row">
           <Icon
