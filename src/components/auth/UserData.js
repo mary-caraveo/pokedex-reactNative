@@ -1,5 +1,14 @@
 import React, { useState, useCallback } from 'react';
-import { View, Text, Divider, VStack, Button, Icon, Flex } from 'native-base';
+import {
+  View,
+  Text,
+  Divider,
+  VStack,
+  Button,
+  Icon,
+  Flex,
+  Box,
+} from 'native-base';
 import { MaterialIcons } from '@expo/vector-icons';
 import { useFocusEffect } from '@react-navigation/native';
 import { size } from 'lodash';
@@ -24,8 +33,8 @@ const UserData = () => {
   );
 
   return (
-    <View backgroundColor="white" height="100%">
-      <Flex direction="row" marginBottom="30" marginX="6" marginTop="6">
+    <Box backgroundColor="white" height="100%" justifyContent="center" safeArea>
+      <Flex direction="row" marginX="6">
         <Text fontWeight="bold" fontSize="24">
           Bienvenid@,
         </Text>
@@ -33,7 +42,8 @@ const UserData = () => {
           {auth.username}
         </Text>
       </Flex>
-      <VStack space={5} marginX="4" marginBottom="6">
+
+      <VStack space={5} marginX="4" marginY="4">
         <Flex direction="row">
           <Icon
             as={MaterialIcons}
@@ -88,7 +98,7 @@ const UserData = () => {
           Desconectarse
         </Button>
       </VStack>
-    </View>
+    </Box>
   );
 };
 
