@@ -5,19 +5,21 @@ import PokemonScreen from '../screens/PokemonScreen';
 
 const Stack = createStackNavigator();
 
-export default function FavoriteNavigation() {
+const FavoriteNavigation = () => {
   return (
     <Stack.Navigator>
       <Stack.Screen
         name="Favorite"
         component={FavoriteScreen}
-        options={{ title: "Favoritos" }}
+        options={{ title: 'Favoritos' }}
       />
       <Stack.Screen
         name="Pokemon"
         component={PokemonScreen}
-        options={{ title: "", headerTransparent: true }}
+        options={{ title: '', headerTransparent: true }}
       />
     </Stack.Navigator>
   );
-}
+};
+
+export default FavoriteNavigation;

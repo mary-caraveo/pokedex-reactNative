@@ -3,7 +3,7 @@ import { SafeAreaView } from 'react-native';
 import { getPokemonApi, getPokemonDetailsByUrlApi } from '../api/pokemon';
 import PokemonList from '../components/PokemonList';
 
-export default function PokedexScreen() {
+const PokedexScreen = () => {
   const [pokemons, setPokemons] = useState([]);
   const [nextUrl, setNextUrl] = useState(null);
 
@@ -46,4 +46,6 @@ export default function PokedexScreen() {
       />
     </SafeAreaView>
   );
-}
+};
+
+export default PokedexScreen;

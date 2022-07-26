@@ -1,9 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
-import FontAwesome from "react-native-vector-icons/FontAwesome";
-import { addPokemonFavoriteApi, isPokemonFavoriteApi, removePokemonFavoriteApi } from '../../api/favorite';
+import FontAwesome from 'react-native-vector-icons/FontAwesome';
+import {
+  addPokemonFavoriteApi,
+  isPokemonFavoriteApi,
+  removePokemonFavoriteApi,
+} from '../../api/favorite';
 
-export default function Favorite(props) {
+const Favorite = (props) => {
   const { id } = props;
   const [isFavorite, setIsFavorite] = useState(undefined);
   const [reloadCheck, setReloadCheck] = useState(false);
@@ -51,4 +55,6 @@ export default function Favorite(props) {
       style={{ marginRight: 20 }}
     />
   );
-}
+};
+
+export default Favorite;

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { ScrollView } from 'react-native';
+import { ScrollView } from 'native-base';
 import { getPokemonDetailsApi } from '../api/pokemon';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import Header from '../components/pokemon/Header';
@@ -8,7 +8,7 @@ import Stats from '../components/pokemon/Stats';
 import Favorite from '../components/pokemon/Favorite';
 import useAuth from '../hooks/useAuth';
 
-export default function PokemonScreen(props) {
+const PokemonScreen = (props) => {
   const {
     navigation,
     route: { params },
@@ -49,11 +49,13 @@ export default function PokemonScreen(props) {
       <Header
         name={pokemon.name}
         order={pokemon.order}
-        image={pokemon.sprites.other["official-artwork"].front_default}
+        image={pokemon.sprites.other['official-artwork'].front_default}
         type={pokemon.types[0].type.name}
       />
       <Type types={pokemon.types} />
       <Stats stats={pokemon.stats} />
     </ScrollView>
   );
-}
+};
+
+export default PokemonScreen;
