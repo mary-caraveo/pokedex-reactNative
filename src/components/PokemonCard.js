@@ -1,67 +1,47 @@
 import React from 'react';
-import { StyleSheet, View, Text, Image, TouchableWithoutFeedback } from 'react-native';
+import { View, Text, Image, Pressable } from 'native-base';
 import getColorByPokemonType from '../utils/getColorByPokemonType';
 import { capitalize } from 'lodash';
 import { useNavigation } from '@react-navigation/core';
 
-export default function PokemonCard(props) {
+const PokemonCard = (props) => {
   const { pokemon } = props;
   const navigation = useNavigation();
   const pokemonColor = getColorByPokemonType(pokemon.type);
-  const bgStyles = { backgroundColor: pokemonColor, ...styles.bgStyles };
 
   const goToPokemon = () => {
-    navigation.navigate("Pokemon", { id: pokemon.id });
+    navigation.navigate('Pokemon', { id: pokemon.id });
   };
 
   return (
-    <TouchableWithoutFeedback onPress={goToPokemon}>
-      <View style={styles.card}>
-        <View style={styles.spacing}>
-          <View style={bgStyles}>
-            <Text style={styles.number}>
+    <Pressable width="50%" onPress={goToPokemon}>
+      <View flex={1} height="130">
+        <View flex={1} padding="1">
+          <View
+            backgroundColor={pokemonColor}
+            flex={1}
+            borderRadius="15"
+            padding="2">
+            <Text position="absolute" right="3" top="2" color="white">
               #{`${pokemon.order}`.padStart(3, 0)}
             </Text>
-            <Text style={styles.name}>{capitalize(pokemon.name)}</Text>
-            <Image source={{ uri: pokemon.image }} style={styles.image} />
+            <Text color="white" fontSize="12" paddingTop="2">
+              {capitalize(pokemon.name)}
+            </Text>
+            <Image
+              position="absolute"
+              bottom="1"
+              right="2"
+              width="90"
+              height="90"
+              source={{ uri: pokemon.image }}
+              alt={pokemon.name}
+            />
           </View>
         </View>
       </View>
-    </TouchableWithoutFeedback>
+    </Pressable>
   );
-}
+};
 
-const styles = StyleSheet.create({
-  card: {
-    flex: 1,
-    height: 130,
-  },
-  spacing: {
-    flex: 1,
-    padding: 5,
-  },
-  bgStyles: {
-    flex: 1,
-    borderRadius: 15,
-    padding: 10,
-  },
-  number: {
-    position: "absolute",
-    right: 10,
-    top: 10,
-    color: "white",
-  },
-  name: {
-    color: "white",
-    fontSize: 15,
-    paddingTop: 10,
-    fontSize: 11,
-  },
-  image: {
-    position: "absolute",
-    bottom: 2,
-    right: 2,
-    width: 90,
-    height: 90,
-  },
-});
+export default PokemonCard;
