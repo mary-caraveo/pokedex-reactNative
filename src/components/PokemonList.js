@@ -22,6 +22,9 @@ const PokemonList = (props) => {
       onEndReached={isNext && loadMore}
       onEndReachedThreshold={0.1}
       flatListContentContainer={flatListContentContainer}
+      backgroundColor="white"
+      height="100%"
+      padding="1"
       ListFooterComponent={
         isNext && (
           <Spinner
