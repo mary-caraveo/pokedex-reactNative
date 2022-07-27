@@ -12,10 +12,10 @@ const Header = (props) => {
     <>
       <View
         width="100%"
-        height="405"
+        height="52%"
         backgroundColor={color}
         position="absolute"
-        borderBottomEndRadius="300"
+        borderBottomRightRadius="300"
         borderBottomLeftRadius="300"
         style={styles.bg}
       />
@@ -23,7 +23,7 @@ const Header = (props) => {
         flexDirection="row"
         justifyContent="space-between"
         alignItems="center"
-        paddingTop="90"
+        paddingTop="20"
         marginX="5">
         <Text color="white" fontWeight="bold" fontSize="28">
           {capitalize(name)}
@@ -32,7 +32,7 @@ const Header = (props) => {
           #{`${order}`.padStart(3, 0)}
         </Text>
       </View>
-      <View flex={1} justifyContent="center" alignItems="center" top="25">
+      <View justifyContent="center" alignItems="center">
         <Image
           width="250"
           height="300"

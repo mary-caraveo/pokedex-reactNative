@@ -14,7 +14,7 @@ const Stats = (props) => {
   };
 
   return (
-    <View paddingX="6" marginTop="10" marginBottom="10">
+    <View paddingX="6" marginTop="7" marginBottom="10">
       <Text fontWeight="bold" fontSize="20" paddingBottom="2">
         Base Stats
       </Text>
