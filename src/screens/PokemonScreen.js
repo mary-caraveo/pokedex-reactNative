@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { ScrollView } from 'native-base';
+import { View } from 'native-base';
 import { getPokemonDetailsApi } from '../api/pokemon';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import Header from '../components/pokemon/Header';
@@ -45,7 +45,7 @@ const PokemonScreen = (props) => {
   if (!pokemon) return null;
 
   return (
-    <ScrollView>
+    <View height="100%" backgroundColor="white">
       <Header
         name={pokemon.name}
         order={pokemon.order}
@@ -54,7 +54,7 @@ const PokemonScreen = (props) => {
       />
       <Type types={pokemon.types} />
       <Stats stats={pokemon.stats} />
-    </ScrollView>
+    </View>
   );
 };
 
