@@ -1,67 +1,54 @@
 import React from 'react';
-import { StyleSheet, View, SafeAreaView, Text, Image } from 'react-native';
+import { StyleSheet } from 'react-native';
+import { View, Text, Image } from 'native-base';
 import { capitalize } from 'lodash';
 import getColorByPokemonType from '../../utils/getColorByPokemonType';
 
-export default function Header(props) {
+const Header = (props) => {
   const { name, order, image, type } = props;
   const color = getColorByPokemonType(type);
 
-  const bgStyle = [{ backgroundColor: color, ...styles.bg }];
-
   return (
     <>
-      <View style={bgStyle} />
-      <SafeAreaView style={styles.content}>
-        <View style={styles.header}>
-          <Text style={styles.name}>{capitalize(name)}</Text>
-          <Text style={styles.order}>#{`${order}`.padStart(3, 0)}</Text>
-        </View>
-        <View style={styles.contentImg}>
-          <Image source={{ uri: image }} style={styles.image} />
-        </View>
-      </SafeAreaView>
+      <View
+        width="100%"
+        height="405"
+        backgroundColor={color}
+        position="absolute"
+        borderBottomEndRadius="300"
+        borderBottomLeftRadius="300"
+        style={styles.bg}
+      />
+      <View
+        flexDirection="row"
+        justifyContent="space-between"
+        alignItems="center"
+        paddingTop="90"
+        marginX="5">
+        <Text color="white" fontWeight="bold" fontSize="28">
+          {capitalize(name)}
+        </Text>
+        <Text color="white" fontWeight="bold">
+          #{`${order}`.padStart(3, 0)}
+        </Text>
+      </View>
+      <View flex={1} justifyContent="center" alignItems="center" top="25">
+        <Image
+          width="250"
+          height="300"
+          resizeMode="contain"
+          source={{ uri: image }}
+          alt={capitalize(name)}
+        />
+      </View>
     </>
   );
-}
+};
+
+export default Header;
 
 const styles = StyleSheet.create({
   bg: {
-    width: "100%",
-    height: 400,
-    position: "absolute",
-    borderBottomEndRadius: 300,
-    borderBottomLeftRadius: 300,
     transform: [{ scaleX: 2 }],
-  },
-  content: {
-    marginHorizontal: 20,
-    marginTop: 30,
-  },
-  header: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "center",
-    paddingTop: 40,
-  },
-  name: {
-    color: "white",
-    fontWeight: "bold",
-    fontSize: 27,
-  },
-  order: {
-    color: "white",
-    fontWeight: "bold",
-  },
-  contentImg: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    top: 30,
-  },
-  image: {
-    width: 250,
-    height: 300,
-    resizeMode: "contain",
   },
 });
