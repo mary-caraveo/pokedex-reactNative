@@ -2,6 +2,7 @@ import React from 'react';
 import { Platform } from 'react-native';
 import { FlatList, Spinner } from 'native-base';
 import PokemonCard from './PokemonCard';
+import NoFavorites from './NoFavorites';
 
 const PokemonList = (props) => {
   const { pokemons, loadPokemons, isNext } = props;
@@ -23,6 +24,7 @@ const PokemonList = (props) => {
       onEndReachedThreshold={0.1}
       flatListContentContainer={flatListContentContainer}
       backgroundColor="white"
+      ListEmptyComponent={() => <NoFavorites />}
       height="100%"
       padding="1"
       ListFooterComponent={
