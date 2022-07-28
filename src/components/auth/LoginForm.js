@@ -88,7 +88,6 @@ const LoginForm = () => {
                 placeholder="Contraseña"
                 fontSize="14"
                 autoCapitalize="none"
-                secureTextEntry={true}
                 value={formik.values.password}
                 onChangeText={(text) => formik.setFieldValue('password', text)}
                 InputLeftElement={
