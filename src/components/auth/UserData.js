@@ -61,7 +61,8 @@ const UserData = () => {
           />
           <Text
             color="gray.700"
-            fontSize="16">{`${auth.firstName} ${auth.lastName}`}</Text>
+            fontSize="16"
+          >{`${auth.firstName} ${auth.lastName}`}</Text>
         </Flex>
         <Divider />
         <Flex direction="row">

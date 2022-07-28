@@ -34,7 +34,8 @@ const Stats = (props) => {
               width="88%"
               height="1.5"
               borderRadius="20"
-              overflow="hidden">
+              overflow="hidden"
+            >
               <View
                 height="1.5"
                 borderRadius="20"

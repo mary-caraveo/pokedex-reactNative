@@ -24,7 +24,8 @@ const Header = (props) => {
         justifyContent="space-between"
         alignItems="center"
         paddingTop="20"
-        marginX="5">
+        marginX="5"
+      >
         <Text color="white" fontWeight="bold" fontSize="28">
           {capitalize(name)}
         </Text>

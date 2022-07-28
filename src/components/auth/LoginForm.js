@@ -48,7 +48,8 @@ const LoginForm = () => {
         lg: 'auto',
       }}
       behavior={behavior}
-      enabled>
+      enabled
+    >
       <Box safeArea={true}>
         <Image
           source={require('../../assets/account.png')}
@@ -120,7 +121,8 @@ const LoginForm = () => {
             borderRadius="50"
             size="lg"
             title="Ingresar"
-            onPress={formik.handleSubmit}>
+            onPress={formik.handleSubmit}
+          >
             Ingresar
           </Button>
           <Text textAlign="center" marginTop="20" color="red.500">

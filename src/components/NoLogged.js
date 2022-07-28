@@ -20,7 +20,8 @@ const NoLogged = () => {
           textAlign="center"
           marginBottom={2}
           fontSize="18"
-          fontWeight="bold">
+          fontWeight="bold"
+        >
           Aún no hay elementos guardados
         </Text>
         <Text textAlign="center" marginBottom="6">
@@ -30,7 +31,8 @@ const NoLogged = () => {
           title="Iniciar sesión"
           borderRadius="50"
           size="lg"
-          onPress={() => navigation.navigate('Account')}>
+          onPress={() => navigation.navigate('Account')}
+        >
           Iniciar sesión
         </Button>
       </View>

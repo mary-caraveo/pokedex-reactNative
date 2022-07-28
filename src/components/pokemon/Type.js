@@ -11,7 +11,8 @@ const Type = (props) => {
       marginTop="4"
       flexDirection="row"
       alignItems="center"
-      justifyContent="center">
+      justifyContent="center"
+    >
       {map(types, (item, index) => (
         <View
           borderRadius="20"
@@ -19,7 +20,8 @@ const Type = (props) => {
           paddingY="2"
           marginX="4"
           backgroundColor={getColorByPokemonType(item.type.name)}
-          key={index}>
+          key={index}
+        >
           <Text color="white" bold={true}>
             {capitalize(item.type.name)}
           </Text>
