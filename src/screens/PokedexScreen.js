@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { SafeAreaView } from 'react-native';
 import { getPokemonApi, getPokemonDetailsByUrlApi } from '../api/pokemon';
 import PokemonList from '../components/PokemonList';
 
@@ -38,13 +37,11 @@ const PokedexScreen = () => {
   };
 
   return (
-    <SafeAreaView>
-      <PokemonList
-        pokemons={pokemons}
-        loadPokemons={loadPokemons}
-        isNext={nextUrl}
-      />
-    </SafeAreaView>
+    <PokemonList
+      pokemons={pokemons}
+      loadPokemons={loadPokemons}
+      isNext={nextUrl}
+    />
   );
 };
 
