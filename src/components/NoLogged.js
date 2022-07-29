@@ -1,5 +1,5 @@
 import React from 'react';
-import { Image } from 'react-native';
+import { Image } from 'native-base';
 import { useNavigation } from '@react-navigation/native';
 import { View, Button, Text } from 'native-base';
 
@@ -12,7 +12,9 @@ const NoLogged = () => {
         <Image
           source={require('../assets/warning.png')}
           resizeMode="cover"
-          style={{ width: 400, height: 300 }}
+          alt="warning"
+          width="400"
+          height="300"
         />
       </View>
       <View paddingHorizontal={30}>
@@ -20,9 +22,8 @@ const NoLogged = () => {
           textAlign="center"
           marginBottom={2}
           fontSize="18"
-          fontWeight="bold"
-        >
-          Aún no hay elementos guardados
+          fontWeight="bold">
+          No se pueden visualizar los elementos
         </Text>
         <Text textAlign="center" marginBottom="6">
           Para ver esta sección es necesario iniciar sesión
@@ -31,8 +32,7 @@ const NoLogged = () => {
           title="Iniciar sesión"
           borderRadius="50"
           size="lg"
-          onPress={() => navigation.navigate('Account')}
-        >
+          onPress={() => navigation.navigate('Account')}>
           Iniciar sesión
         </Button>
       </View>

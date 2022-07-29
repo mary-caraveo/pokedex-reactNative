@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { Platform, Image } from 'react-native';
+import { Platform } from 'react-native';
 import { MaterialIcons } from '@expo/vector-icons';
-import { Box } from 'native-base';
+import { Box, Image } from 'native-base';
 import {
   KeyboardAvoidingView,
   View,
@@ -48,13 +48,14 @@ const LoginForm = () => {
         lg: 'auto',
       }}
       behavior={behavior}
-      enabled
-    >
+      enabled>
       <Box safeArea={true}>
         <Image
           source={require('../../assets/account.png')}
           resizeMode="cover"
-          style={{ width: 400, height: 200 }}
+          alt="account"
+          width="400"
+          height="250"
         />
         <View paddingX="25">
           <Text fontSize="26" fontWeight="bold" marginTop="30" marginBottom="8">
@@ -121,8 +122,7 @@ const LoginForm = () => {
             borderRadius="50"
             size="lg"
             title="Ingresar"
-            onPress={formik.handleSubmit}
-          >
+            onPress={formik.handleSubmit}>
             Ingresar
           </Button>
           <Text textAlign="center" marginTop="20" color="red.500">

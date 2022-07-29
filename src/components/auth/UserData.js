@@ -1,5 +1,4 @@
 import React, { useState, useCallback } from 'react';
-import { Image } from 'react-native';
 import {
   View,
   Text,
@@ -9,6 +8,7 @@ import {
   Icon,
   Flex,
   Box,
+  Image,
 } from 'native-base';
 import { MaterialIcons } from '@expo/vector-icons';
 import { useFocusEffect } from '@react-navigation/native';
@@ -47,7 +47,9 @@ const UserData = () => {
         <Image
           source={require('../../assets/welcome.png')}
           resizeMode="cover"
-          style={{ width: 350, height: 250 }}
+          alt="welcome"
+          width="350"
+          height="250"
         />
       </View>
       <VStack space={5} marginX="4" marginY="4">
@@ -61,8 +63,7 @@ const UserData = () => {
           />
           <Text
             color="gray.700"
-            fontSize="16"
-          >{`${auth.firstName} ${auth.lastName}`}</Text>
+            fontSize="16">{`${auth.firstName} ${auth.lastName}`}</Text>
         </Flex>
         <Divider />
         <Flex direction="row">

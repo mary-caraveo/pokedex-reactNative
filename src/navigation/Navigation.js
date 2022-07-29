@@ -1,5 +1,5 @@
 import React from 'react';
-import { Image } from 'react-native';
+import { Image } from 'native-base';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import FavoriteNavigation from './FavoriteNavigation';
@@ -47,7 +47,10 @@ function renderPokeball() {
   return (
     <Image
       source={require('../assets/pokeball.png')}
-      style={{ width: 75, height: 75, top: -25 }}
+      alt="pokeball"
+      width="75"
+      height="75"
+      top="-25"
     />
   );
 }
