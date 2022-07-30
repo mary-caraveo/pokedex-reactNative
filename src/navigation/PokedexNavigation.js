@@ -11,7 +11,7 @@ const PokedexNavigation = () => {
       <Stack.Screen
         name="Pokedex"
         component={PokedexScreen}
-        options={{ title: 'Lista Pokemons' }}
+        options={{ title: 'Lista Pokemons', headerTitleAlign: 'center' }}
       />
       <Stack.Screen
         name="Pokemon"

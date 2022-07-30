@@ -11,12 +11,15 @@ const FavoriteNavigation = () => {
       <Stack.Screen
         name="Favorite"
         component={FavoriteScreen}
-        options={{ title: 'Favoritos' }}
+        options={{
+          headerTitle: 'Favoritos',
+          headerTitleAlign: 'center',
+        }}
       />
       <Stack.Screen
         name="Pokemon"
         component={PokemonScreen}
-        options={{ title: '', headerTransparent: true }}
+        options={{ headerTitle: '', headerTransparent: true }}
       />
     </Stack.Navigator>
   );
