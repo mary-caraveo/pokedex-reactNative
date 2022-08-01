@@ -34,7 +34,11 @@ const UserData = () => {
   );
 
   return (
-    <Box backgroundColor="white" height="100%" justifyContent="center" safeArea>
+    <Box
+      backgroundColor="white"
+      height="100%"
+      justifyContent="center"
+      safeArea={true}>
       <Flex direction="row" marginX="6">
         <Text fontWeight="bold" fontSize="24">
           Bienvenid@,
