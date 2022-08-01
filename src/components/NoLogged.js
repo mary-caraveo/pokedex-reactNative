@@ -17,7 +17,7 @@ const NoLogged = () => {
           height="300"
         />
       </View>
-      <View paddingHorizontal={30}>
+      <View paddingX={6}>
         <Text
           textAlign="center"
           marginBottom={2}
