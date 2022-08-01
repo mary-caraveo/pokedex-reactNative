@@ -1,3 +1,3 @@
 # Pokedex - React Native
 
-![overview](./src/assets/app.png)
+![overview](./src/assets/app.svg)
